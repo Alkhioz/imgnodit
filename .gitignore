@@ -1,6 +1,5 @@
 # Node.js stuff
 node_modules/
-package-lock.json
 
 # Build artifacts (WASM + JS glue)
 build/
