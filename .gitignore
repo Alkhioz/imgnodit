@@ -1,0 +1,40 @@
+# Node.js stuff
+node_modules/
+package-lock.json
+
+# Build artifacts (WASM + JS glue)
+build/
+dist/
+
+# Test binaries
+*.out
+*.o
+*.exe
+
+# Backup and editor files
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# VSCode / IDE configs (optional)
+.vscode/
+.idea/
+
+# Emscripten cache (optional but useful)
+emsdk/
+.cache/
+emscripten_cache/
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS-specific
+*.bak
+*.tmp
+
+# Shell history or personal config
+*.sh~
+.env
+*.local

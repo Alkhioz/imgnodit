@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: 🧪 Build & Test (Ubuntu)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🧰 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: 📦 Install JS deps
+        run: npm ci
+
+      - name: ✅ Run JS lint
+        run: npm run lint:js
+
+      - name: ✅ Run JS tests
+        run: npm run test:js
+
+      - name: ⚙️ Install Clang & clang-tidy
+        run: |
+          sudo apt update
+          sudo apt install -y clang clang-tidy
+
+      - name: 🧪 Run C linter
+        run: npm run lint:c
+
+      - name: 🔬 Run C tests
+        run: npm run test:c
